@@ -2070,7 +2070,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer-core@npm:^22.15.0":
+"puppeteer-core@npm:22.15.0":
   version: 22.15.0
   resolution: "puppeteer-core@npm:22.15.0"
   dependencies:
@@ -2080,6 +2080,19 @@ __metadata:
     devtools-protocol: "npm:0.0.1312386"
     ws: "npm:^8.18.0"
   checksum: 10c0/6d041db5f654088857a39e592672fe8cce1e974a1547020d404d3bd5f0e1568eecb2de9b4626b6a48cbe15da1c6ee9d33962cb473dcb67ff08927f4d4ec1e461
+  languageName: node
+  linkType: hard
+
+"puppeteer-core@patch:puppeteer-core@npm%3A22.15.0#~/.yarn/patches/puppeteer-core-npm-22.15.0-2dabb1e0b8.patch":
+  version: 22.15.0
+  resolution: "puppeteer-core@patch:puppeteer-core@npm%3A22.15.0#~/.yarn/patches/puppeteer-core-npm-22.15.0-2dabb1e0b8.patch::version=22.15.0&hash=0f5545"
+  dependencies:
+    "@puppeteer/browsers": "npm:2.3.0"
+    chromium-bidi: "npm:0.6.3"
+    debug: "npm:^4.3.6"
+    devtools-protocol: "npm:0.0.1312386"
+    ws: "npm:^8.18.0"
+  checksum: 10c0/ecf0f68ce935e85978bc1643d6baf90153b337ce22e8e373ab715fa03b9ce8f1cb7fffbe3cf68b5212edb00453b4727957047a22c39219335890ce958e22ba34
   languageName: node
   linkType: hard
 
@@ -2629,7 +2642,7 @@ __metadata:
     "@yarnpkg/sdks": "npm:^3.2.0"
     chrome-launcher: "npm:^1.1.2"
     node-html-parser: "npm:^6.1.13"
-    puppeteer-core: "npm:^22.15.0"
+    puppeteer-core: "patch:puppeteer-core@npm%3A22.15.0#~/.yarn/patches/puppeteer-core-npm-22.15.0-2dabb1e0b8.patch"
     tsx: "npm:^4.16.5"
     typescript: "npm:^5.5.4"
     undici: "npm:^6.19.8"
