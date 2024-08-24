@@ -10,11 +10,25 @@
     "start": "yarn node --import tsx/esm ./start.ts",
     "od": "yarn outdated"
   },
+  "dependencies": {
+    "chrome-launcher": "^1.1.2",
+    "node-html-parser": "^6.1.13",
+    "puppeteer-core": "^22.15.0",
+    "undici": "^6.19.8"
+  },
   "devDependencies": {
     "@types/node": "^22.1.0",
     "@yarnpkg/sdks": "^3.2.0",
     "tsx": "^4.16.5",
     "typescript": "^5.5.4"
+  },
+  "peerDependencies": {
+    "xvfb": "*"
+  },
+  "peerDependenciesMeta": {
+    "xvfb": {
+      "optional": true
+    }
   },
   "engines": {
     "node": ">=18 || >=20 || >=22"
