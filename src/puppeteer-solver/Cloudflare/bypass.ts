@@ -1,6 +1,6 @@
 // https://github.com/zfcsoftware/youtube_lessons_resources/blob/main/puppeteer_cloudflare_bypass/index.js
 
-import type { Page } from 'puppeteer-core'
+import type { Page } from 'puppeteer-core-patch'
 
 export const checkStat = async (page: Page) => {
   const st = setTimeout(() => {

@@ -1,5 +1,5 @@
 import { launch, Launcher } from 'chrome-launcher'
-import puppeteer from 'puppeteer-core'
+import puppeteer from 'puppeteer-core-patch'
 
 // import { pageController } from './module/pageController.mjs'
 
@@ -19,7 +19,7 @@ type Options = {
   // skipTarget?: string[]
   // fingerprint?: boolean
   // turnstile?: boolean
-  connectOption?: import('puppeteer-core').ConnectOptions
+  connectOption?: import('puppeteer-core-patch').ConnectOptions
   // disableXvfb?: boolean
   // fpconfig?: Record<string, any>
   // executablePath?: string

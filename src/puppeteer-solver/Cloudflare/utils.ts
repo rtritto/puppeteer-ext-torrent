@@ -1,4 +1,4 @@
-import type { Page } from 'puppeteer-core'
+import type { Page } from 'puppeteer-core-patch'
 
 export const getFrame = async (page: Page, regex: RegExp) => {
   while (true) {

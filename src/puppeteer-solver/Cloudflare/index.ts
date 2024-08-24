@@ -1,4 +1,4 @@
-import type { Page } from 'puppeteer-core'
+import type { Page } from 'puppeteer-core-patch'
 // import pcr from 'puppeteer-captcha-solver'
 
 import { checkStat } from './bypass'

@@ -13,7 +13,7 @@
   "dependencies": {
     "chrome-launcher": "^1.1.2",
     "node-html-parser": "^6.1.13",
-    "puppeteer-core": "patch:puppeteer-core@npm%3A22.15.0#~/.yarn/patches/puppeteer-core-npm-22.15.0-2dabb1e0b8.patch",
+    "puppeteer-core-patch": "^1.0.1",
     "undici": "^6.19.8"
   },
   "devDependencies": {

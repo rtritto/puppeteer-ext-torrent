@@ -1,6 +1,6 @@
 // https://github.com/zfcsoftware/puppeteer-captcha-solver/blob/main/lib/cfSolver.js
 
-import type { Page } from 'puppeteer-core'
+import type { Page } from 'puppeteer-core-patch'
 
 
 const checkCaptcha = async (page: Page) => {
