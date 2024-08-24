@@ -38,7 +38,7 @@ export const connect = async (options: Options = {}) => {
     customConfig = {},
     proxy = {},
     // turnstile = false,
-    connectOption = {},
+    connectOption = {}
     // disableXvfb = false
   } = options
   // let xvfbsession = null
@@ -59,13 +59,18 @@ export const connect = async (options: Options = {}) => {
   //   }
   // }
 
+  const flags = Launcher.defaultFlags()
+
+  // Add AutomationControlled to "disable-features" flag
+  const indexDisableFeatures = flags.findIndex((flag) => flag.startsWith('--disable-features'))
+  flags[indexDisableFeatures] = `${flags[indexDisableFeatures]},AutomationControlled`
+
   const chrome = await launch({
     chromeFlags: [
+      ...flags,
       ...args,
-      ...Launcher.defaultFlags().filter(item => !item.includes('--disable-features')),
       ...((headless !== false) ? [`--headless=${headless}`] : []),
       ...((proxy.host && proxy.port) ? [`--proxy-server=${proxy.host}:${proxy.port}`] : []),
-      '--disable-features=Translate,OptimizationHints,MediaRouter,DialMediaRouteProvider,CalculateNativeWinOcclusion,InterestFeedContentSuggestions,CertificateTransparencyComponentUpdater,AutofillServerCommunication,PrivacySandboxSettings4,AutomationControlled',
       '--no-sandbox'
     ],
     ...customConfig
