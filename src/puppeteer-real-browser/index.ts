@@ -24,6 +24,7 @@ type Options = {
   // fpconfig?: Record<string, any>
   // executablePath?: string
   // extensionPath?: boolean
+  enableExtensions?: boolean
 }
 
 /**
@@ -38,7 +39,8 @@ export const connect = async (options: Options = {}) => {
     customConfig = {},
     proxy = {},
     // turnstile = false,
-    connectOption = {}
+    connectOption = {},
+    enableExtensions = false
     // disableXvfb = false
   } = options
   // let xvfbsession = null
@@ -60,6 +62,12 @@ export const connect = async (options: Options = {}) => {
   // }
 
   const flags = Launcher.defaultFlags()
+
+  if (enableExtensions === true) {
+    // Remove "disable-extensions" flag
+    const indexDisableExtension = flags.indexOf('--disable-extensions')
+    flags.splice(indexDisableExtension, 1)
+  }
 
   // Add AutomationControlled to "disable-features" flag
   const indexDisableFeatures = flags.findIndex((flag) => flag.startsWith('--disable-features'))
