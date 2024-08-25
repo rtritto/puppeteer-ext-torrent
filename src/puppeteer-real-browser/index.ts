@@ -1,5 +1,7 @@
 import { launch, Launcher } from 'chrome-launcher'
-import puppeteer from 'puppeteer-core-patch'
+import _puppeteer from 'puppeteer-core-patch'
+import { type PuppeteerExtraPlugin, addExtra } from 'puppeteer-extra'
+import createPuppeteerStealth from 'puppeteer-extra-plugin-stealth'
 
 // import { pageController } from './module/pageController.mjs'
 
@@ -25,6 +27,7 @@ type Options = {
   // executablePath?: string
   // extensionPath?: boolean
   enableExtensions?: boolean
+  plugins?: PuppeteerExtraPlugin[]
 }
 
 /**
@@ -40,8 +43,9 @@ export const connect = async (options: Options = {}) => {
     proxy = {},
     // turnstile = false,
     connectOption = {},
-    enableExtensions = false
+    enableExtensions = false,
     // disableXvfb = false
+    plugins = []
   } = options
   // let xvfbsession = null
   // if (headless == 'auto') {
@@ -83,6 +87,20 @@ export const connect = async (options: Options = {}) => {
     ],
     ...customConfig
   })
+
+  const puppeteer = addExtra(_puppeteer)
+
+  // Add Stealth
+  const puppeteerStealth = createPuppeteerStealth()
+  // https://github.com/berstend/puppeteer-extra/issues/817
+  puppeteerStealth.enabledEvasions.delete('user-agent-override')
+  puppeteer.use(puppeteerStealth)
+
+  if (plugins.length > 0) {
+    for (const item of plugins) {
+      puppeteer.use(item)
+    }
+  }
 
   const browser = await puppeteer.connect({
     browserURL: `http://127.0.0.1:${chrome.port}`,
