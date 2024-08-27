@@ -1,5 +1,6 @@
 import { parse } from 'node-html-parser'
 import { request } from 'undici'
+import { setTimeout } from 'node:timers/promises'
 
 import { connect } from './src/puppeteer-real-browser/index'
 import { resolveCF } from './src/puppeteer-solver/index'
@@ -24,6 +25,8 @@ const urls = []
 for (let i = 0; i < len; i++) {
   const pageNumber = i + 1
   const urlExt = getUrlExt(filter, pageNumber)
+  // Workaround to ERR_CONNECTION_REFUSED
+  await setTimeout(5000)
   await page.goto(urlExt, { waitUntil: 'domcontentloaded' })
   if (pageNumber === 1) {
     console.log(`urlExt: ${urlExt}`)
