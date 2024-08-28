@@ -20,6 +20,7 @@ export const connect = async ({
   connectOption = {},
   enableExtensions = false,
   // disableXvfb = false,
+  disableSandbox = false,
   enableStealth = false,
   plugins = []
 }: Options = {}) => {
@@ -59,7 +60,7 @@ export const connect = async ({
       ...args,
       ...((headless !== false) ? [`--headless=${headless}`] : []),
       ...((proxy.host && proxy.port) ? [`--proxy-server=${proxy.host}:${proxy.port}`] : []),
-      '--no-sandbox'
+      ...(disableSandbox === true) ? ['--no-sandbox'] : []
     ],
     ...customConfig
   })
