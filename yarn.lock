@@ -3025,6 +3025,11 @@ __metadata:
     tsx: "npm:^4.16.5"
     typescript: "npm:^5.5.4"
     undici: "npm:^6.19.8"
+  peerDependencies:
+    xvfb: "*"
+  peerDependenciesMeta:
+    xvfb:
+      optional: true
   languageName: unknown
   linkType: soft
 
