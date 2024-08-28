@@ -1,5 +1,6 @@
 import type { Page } from 'puppeteer-core-patch'
 // import pcr from 'puppeteer-captcha-solver'
+// import { setTimeout } from 'node:timers/promises'
 
 import { checkStat } from './bypass'
 // import { getFrame } from './utils'
@@ -13,7 +14,7 @@ const resolveCF = async (page: Page) => {
   //   console.debug('Try to resolve Cloudflare...')
   //   await checkStat(page)
   //   await page.content()
-  //   await new Promise(r => setTimeout(r, 2000))
+  //   await setTimeout(2000)
   // }
   // console.debug('Cloudflare resolved!')
 
@@ -30,7 +31,7 @@ const resolveCF = async (page: Page) => {
     //   console.debug('Cloudflare resolved!')
     //   return
     // }
-    // await new Promise(r => setTimeout(r, 2000))
+    // await setTimeout(2000)
   }
 
   // await pcr.autoSolve({

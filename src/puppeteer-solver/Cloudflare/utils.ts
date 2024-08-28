@@ -1,3 +1,4 @@
+import { setTimeout } from 'node:timers/promises'
 import type { Page } from 'puppeteer-core-patch'
 
 export const getFrame = async (page: Page, regex: RegExp) => {
@@ -6,6 +7,6 @@ export const getFrame = async (page: Page, regex: RegExp) => {
     if (frame) {
       return frame
     }
-    await new Promise(r => setTimeout(r, 1000))
+    await setTimeout(1000)
   }
 }

@@ -1,4 +1,5 @@
 import { createCursor } from 'ghost-cursor'
+import { setTimeout } from 'node:timers/promises'
 import kill from 'tree-kill'
 
 import { checkTurnstile } from './turnstile'
@@ -40,7 +41,7 @@ export async function pageController({
   async function turnstileSolver() {
     while (solveStatus) {
       await checkTurnstile({ page }).catch(() => { })
-      await new Promise(r => setTimeout(r, 1000))
+      await setTimeout(1000)
     }
     return
   }

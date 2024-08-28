@@ -1,5 +1,6 @@
 // https://github.com/zfcsoftware/puppeteer-captcha-solver/blob/main/lib/cfSolver.js
 
+import { setTimeout } from 'node:timers/promises'
 import type { Page } from 'puppeteer-core-patch'
 
 
@@ -40,7 +41,7 @@ const CPsolve = async (page: Page) => {
             await active_frame.click('[type="checkbox"]').catch(err => { })
           }
 
-          await new Promise(r => setTimeout(r, 500))
+          await setTimeout(500)
         } catch (err) {
           console.log(err)
         }
@@ -69,7 +70,7 @@ const cron = async (page: Page) => {
     if (cp_status === true) {
       await CPsolve(page)
     }
-    await new Promise(r => setTimeout(r, 500))
+    await setTimeout(500)
     status = await pageState(page)
   }
   return true

@@ -1,6 +1,6 @@
 export const checkTurnstile = ({ page }: { page: Page }) => {
   return new Promise(async (resolve, reject) => {
-    var waitInterval = setTimeout(() => {
+    const waitInterval = global.setTimeout(() => {
       clearInterval(waitInterval)
       resolve(false)
     }, 5000)
