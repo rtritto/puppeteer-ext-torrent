@@ -1,7 +1,5 @@
 import { launch, Launcher } from 'chrome-launcher'
-import puppeteer, { type Browser } from 'puppeteer-core-patch'
-// import { addExtra } from 'puppeteer-extra'
-// import createPuppeteerStealth from 'puppeteer-extra-plugin-stealth'
+import _puppeteer, { type Browser } from 'puppeteer-core-patch'
 
 // import { pageController } from './module/pageController'
 
@@ -22,7 +20,8 @@ export const connect = async ({
   connectOption = {},
   enableExtensions = false,
   // disableXvfb = false,
-  // plugins = []
+  enableStealth = false,
+  plugins = []
 }: Options = {}) => {
   // let xvfbsession = null
   // if (headless == 'auto') {
@@ -65,19 +64,28 @@ export const connect = async ({
     ...customConfig
   })
 
-  // const puppeteer = addExtra(_puppeteer)
+  let puppeteer
+  if (enableStealth === true || plugins.length > 0) {
+    const { addExtra } = await import('puppeteer-extra')
+    puppeteer = addExtra(_puppeteer)
 
-  // Add Stealth
-  // const puppeteerStealth = createPuppeteerStealth()
-  // // https://github.com/berstend/puppeteer-extra/issues/817
-  // puppeteerStealth.enabledEvasions.delete('user-agent-override')
-  // puppeteer.use(puppeteerStealth)
+    // Add Stealth
+    if (enableStealth === true) {
+      const { default: createPuppeteerStealth } = await import('puppeteer-extra-plugin-stealth')
+      const puppeteerStealth = createPuppeteerStealth()
+      // https://github.com/berstend/puppeteer-extra/issues/817
+      puppeteerStealth.enabledEvasions.delete('user-agent-override')
+      puppeteer.use(puppeteerStealth)
+    }
 
-  // if (plugins.length > 0) {
-  //   for (const item of plugins) {
-  //     puppeteer.use(item)
-  //   }
-  // }
+    if (plugins.length > 0) {
+      for (const item of plugins) {
+        puppeteer.use(item)
+      }
+    }
+  } else {
+    puppeteer = _puppeteer
+  }
 
   const browser = await puppeteer.connect({
     browserURL: `http://127.0.0.1:${chrome.port}`,
