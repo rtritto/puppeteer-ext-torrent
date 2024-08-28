@@ -87,3 +87,14 @@ test('Recaptcha V3 Score (hard)', async () => {
   // if (Number(score) >= 0.7) console.log('Recaptcha V3 Score: ' + score)
   assert.strictEqual(Number(score) >= 0.7, true, 'Recaptcha V3 Score (hard) should be >=0.7. Score Result: ' + score)
 })
+
+test('Fingerprint JS Bot Detector', async () => {
+  const { page, browser } = await connect(realBrowserOption)
+  await page.goto('https://fingerprint.com/products/bot-detection')
+  await setTimeout(5000)
+  const detect = await page.evaluate(() => {
+    return document.querySelector('.HeroSection-module--botSubTitle--2711e').textContent.includes('not')
+  })
+  await browser.close()
+  assert.strictEqual(detect, true, 'Fingerprint JS Bot Detector test failed!')
+})
