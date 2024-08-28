@@ -64,6 +64,7 @@ export const connect = async ({
       // '--incognito'
       '--disable-search-engine-choice-screen'
     ],
+    ignoreDefaultFlags: true,
     ...customConfig
   })
 
