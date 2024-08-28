@@ -1,9 +1,10 @@
 // https://github.com/zfcsoftware/youtube_lessons_resources/blob/main/puppeteer_cloudflare_bypass/index.js
 
+import { setTimeout } from 'node:timers/promises'
 import type { Page } from 'puppeteer-core-patch'
 
 export const checkStat = async (page: Page) => {
-  const st = setTimeout(() => {
+  const st = global.setTimeout(() => {
     return {
       code: 1
     }
@@ -23,17 +24,17 @@ export const checkStat = async (page: Page) => {
     })
     if (checkStat !== 0) {
       try {
-        // await new Promise(r => setTimeout(r, 5000))
-        await new Promise(r => setTimeout(r, 3000))
+        // await setTimeout(5000)
+        await setTimeout(3000)
 
         await page.click('body')
-        await new Promise(r => setTimeout(r, 500))
+        await setTimeout(500)
 
         await page.keyboard.press('Tab')
-        await new Promise(r => setTimeout(r, 500))
+        await setTimeout(500)
 
         await page.keyboard.press('Space')
-        // await new Promise(r => setTimeout(r, 10000))
+        // await setTimeout(10000)
 
         // let frame = page.frames()[0]
         // frame = frame.childFrames()[0]
@@ -77,7 +78,7 @@ export const checkStat = async (page: Page) => {
 //         })
 
 //         while (stat.code !== 0) {
-//           await new Promise(r => setTimeout(r, 500))
+//           await setTimeout(500)
 //           stat = await checkStat({
 //             page: page
 //           })
