@@ -1,52 +1,29 @@
 import { launch, Launcher } from 'chrome-launcher'
-import _puppeteer from 'puppeteer-core-patch'
-import { type PuppeteerExtraPlugin, addExtra } from 'puppeteer-extra'
-import createPuppeteerStealth from 'puppeteer-extra-plugin-stealth'
+import puppeteer, { type Browser } from 'puppeteer-core-patch'
+// import { addExtra } from 'puppeteer-extra'
+// import createPuppeteerStealth from 'puppeteer-extra-plugin-stealth'
 
-// import { pageController } from './module/pageController.mjs'
+// import { pageController } from './module/pageController'
 
 process.env.REBROWSER_PATCHES_RUNTIME_FIX_MODE = 'alwaysIsolated'
 // process.env.REBROWSER_PATCHES_DEBUG = 1
-
-type Options = {
-  args?: string[]
-  headless?: 'auto' | boolean
-  customConfig?: import('chrome-launcher').Options
-  proxy?: {
-    host?: string
-    port?: number
-    // username?: string
-    // password?: string
-  }
-  // skipTarget?: string[]
-  // fingerprint?: boolean
-  // turnstile?: boolean
-  connectOption?: import('puppeteer-core-patch').ConnectOptions
-  // disableXvfb?: boolean
-  // fpconfig?: Record<string, any>
-  // executablePath?: string
-  // extensionPath?: boolean
-  enableExtensions?: boolean
-  plugins?: PuppeteerExtraPlugin[]
-}
 
 /**
  * Disabled features:
  *   - Linux
  *   - pageController
  */
-export const connect = async (options: Options = {}) => {
-  const {
-    args = [],
-    headless = false,
-    customConfig = {},
-    proxy = {},
-    // turnstile = false,
-    connectOption = {},
-    enableExtensions = false,
-    // disableXvfb = false
-    plugins = []
-  } = options
+export const connect = async ({
+  args = [],
+  headless = false,
+  customConfig = {},
+  proxy = {},
+  // turnstile = false,
+  connectOption = {},
+  enableExtensions = false,
+  // disableXvfb = false,
+  // plugins = []
+}: Options = {}) => {
   // let xvfbsession = null
   // if (headless == 'auto') {
   //   headless = false
@@ -88,34 +65,34 @@ export const connect = async (options: Options = {}) => {
     ...customConfig
   })
 
-  const puppeteer = addExtra(_puppeteer)
+  // const puppeteer = addExtra(_puppeteer)
 
   // Add Stealth
-  const puppeteerStealth = createPuppeteerStealth()
-  // https://github.com/berstend/puppeteer-extra/issues/817
-  puppeteerStealth.enabledEvasions.delete('user-agent-override')
-  puppeteer.use(puppeteerStealth)
+  // const puppeteerStealth = createPuppeteerStealth()
+  // // https://github.com/berstend/puppeteer-extra/issues/817
+  // puppeteerStealth.enabledEvasions.delete('user-agent-override')
+  // puppeteer.use(puppeteerStealth)
 
-  if (plugins.length > 0) {
-    for (const item of plugins) {
-      puppeteer.use(item)
-    }
-  }
+  // if (plugins.length > 0) {
+  //   for (const item of plugins) {
+  //     puppeteer.use(item)
+  //   }
+  // }
 
   const browser = await puppeteer.connect({
     browserURL: `http://127.0.0.1:${chrome.port}`,
     ...connectOption
-  })
+  }) as Browser
 
-  let [page] = await browser.pages()
+  let [page] = await browser.pages() as Page[]
 
-  // let pageControllerConfig = { browser, page, proxy, turnstile, xvfbsession, pid: chrome.pid }
+  // const pageControllerConfig = { browser, page, proxy, turnstile, xvfbsession, pid: chrome.pid, plugins }
 
   // page = await pageController(pageControllerConfig)
 
   // browser.on('targetcreated', async target => {
   //   if (target.type() === 'page') {
-  //     let newPage = await target.page()
+  //     let newPage = await target.page() as Page
   //     pageControllerConfig.page = newPage
   //     newPage = await pageController(pageControllerConfig)
   //   }
