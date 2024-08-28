@@ -1,5 +1,5 @@
-export const checkTurnstile = ({ page }: { page: Page }) => {
-  return new Promise(async (resolve, reject) => {
+export const checkTurnstile = ({ page }: { page: Page }): Promise<boolean> => {
+  return new Promise(async (resolve, _reject) => {
     const waitInterval = global.setTimeout(() => {
       clearInterval(waitInterval)
       resolve(false)

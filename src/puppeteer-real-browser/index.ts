@@ -1,7 +1,7 @@
 import { launch, Launcher } from 'chrome-launcher'
 import _puppeteer, { type Browser } from 'puppeteer-core-patch'
 
-// import { pageController } from './module/pageController'
+import { pageController } from './module/pageController'
 
 process.env.REBROWSER_PATCHES_RUNTIME_FIX_MODE = 'alwaysIsolated'
 // process.env.REBROWSER_PATCHES_DEBUG = 1
@@ -95,17 +95,17 @@ export const connect = async ({
 
   let [page] = await browser.pages() as Page[]
 
-  // const pageControllerConfig = { browser, page, proxy, turnstile, xvfbsession, pid: chrome.pid, plugins }
+  const pageControllerConfig = { browser, page, proxy, /* turnstile, xvfbsession, */ pid: chrome.pid, plugins }
 
-  // page = await pageController(pageControllerConfig)
+  page = await pageController(pageControllerConfig)
 
-  // browser.on('targetcreated', async target => {
-  //   if (target.type() === 'page') {
-  //     let newPage = await target.page() as Page
-  //     pageControllerConfig.page = newPage
-  //     newPage = await pageController(pageControllerConfig)
-  //   }
-  // })
+  browser.on('targetcreated', async (target) => {
+    if (target.type() === 'page') {
+      let newPage = await target.page() as Page
+      pageControllerConfig.page = newPage
+      newPage = await pageController(pageControllerConfig)
+    }
+  })
 
   return {
     browser,

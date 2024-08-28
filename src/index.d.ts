@@ -33,10 +33,10 @@ type PageControllerOptions = {
   browser: import('puppeteer-core-patch').Browser
   page: Page
   proxy: Proxy
-  turnstile: boolean
-  xvfbsession?: {
-    stopSync(): void
-  }
+  // turnstile: boolean
+  // xvfbsession?: {
+  //   stopSync(): void
+  // }
   pid: number
   plugins: PuppeteerExtraPlugin[]
 }

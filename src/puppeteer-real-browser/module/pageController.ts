@@ -1,8 +1,8 @@
 import { createCursor } from 'ghost-cursor'
-import { setTimeout } from 'node:timers/promises'
+// import { setTimeout } from 'node:timers/promises'
 import kill from 'tree-kill'
 
-import { checkTurnstile } from './turnstile'
+// import { checkTurnstile } from './turnstile'
 
 const getRandomInt = (min: number, max: number) => {
   const _min = Math.ceil(min)
@@ -14,8 +14,8 @@ export async function pageController({
   browser,
   page,
   proxy,
-  turnstile,
-  xvfbsession,
+  // turnstile,
+  // xvfbsession,
   pid,
   plugins
 }: PageControllerOptions) {
@@ -25,28 +25,28 @@ export async function pageController({
     }
   }
 
-  let solveStatus = turnstile
+  // let solveStatus = turnstile
 
-  page.on('close', () => {
-    solveStatus = false
-  })
+  // page.on('close', () => {
+  //   solveStatus = false
+  // })
 
 
   browser.on('disconnected', async () => {
-    solveStatus = false
-    if (xvfbsession) try { xvfbsession.stopSync() } catch (err) { }
+    // solveStatus = false
+    // if (xvfbsession) try { xvfbsession.stopSync() } catch (err) { }
     if (pid) try { kill(pid, 'SIGKILL') } catch (err) { }
   })
 
-  async function turnstileSolver() {
-    while (solveStatus) {
-      await checkTurnstile({ page }).catch(() => { })
-      await setTimeout(1000)
-    }
-    return
-  }
+  // async function turnstileSolver() {
+  //   while (solveStatus) {
+  //     await checkTurnstile({ page }).catch(() => { })
+  //     await setTimeout(1000)
+  //   }
+  //   return
+  // }
 
-  turnstileSolver()
+  // turnstileSolver()
 
   if (proxy.username && proxy.password) {
     await page.authenticate({ username: proxy.username, password: proxy.password })

@@ -3,7 +3,7 @@ import { request } from 'undici'
 import { setTimeout } from 'node:timers/promises'
 
 import { connect } from './src/puppeteer-real-browser/index'
-import { resolveCF } from './src/puppeteer-solver/index'
+import { turnstileSolver } from './src/puppeteer-solver/index'
 // import { downloadExtensions, extractZipExtensions } from '@/puppeteerUtils/extensions.ts'
 
 const getUrlExt = (filter: string, page: number) => `https://ext.to/search/${filter}/${page}/?order=age&sort=desc`
@@ -30,7 +30,7 @@ for (let i = 0; i < len; i++) {
   await page.goto(urlExt, { waitUntil: 'domcontentloaded' })
   if (pageNumber === 1) {
     console.log(`urlExt: ${urlExt}`)
-    await resolveCF(page)
+    await turnstileSolver(page)
   }
   await page.waitForSelector('tbody')
   const html = await page.content()
