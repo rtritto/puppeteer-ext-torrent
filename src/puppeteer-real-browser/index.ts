@@ -20,7 +20,6 @@ export const connect = async ({
   connectOption = {},
   enableExtensions = false,
   // disableXvfb = false,
-  disableSandbox = false,
   enableStealth = false,
   plugins = []
 }: Options = {}) => {
@@ -42,7 +41,7 @@ export const connect = async ({
   //   }
   // }
 
-  // https://github.com/GoogleChrome/chrome-launcher/blob/main/src/flags.ts
+  // Default flags: https://github.com/GoogleChrome/chrome-launcher/blob/main/src/flags.ts
   const flags = Launcher.defaultFlags()
 
   if (enableExtensions === true) {
@@ -58,10 +57,11 @@ export const connect = async ({
   const chrome = await launch({
     chromeFlags: [
       ...flags,
+      // Supported flags: https://github.com/GoogleChrome/chrome-launcher/blob/main/docs/chrome-flags-for-tools.md
       ...args,
       ...((headless !== false) ? [`--headless=${headless}`] : []),
       ...((proxy.host && proxy.port) ? [`--proxy-server=${proxy.host}:${proxy.port}`] : []),
-      ...(disableSandbox === true) ? ['--no-sandbox'] : [],
+      ...(!headless) ? [] : ['--no-sandbox'],
       // '--incognito'
       '--disable-search-engine-choice-screen'
     ],
