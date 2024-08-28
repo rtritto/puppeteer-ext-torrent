@@ -42,6 +42,7 @@ export const connect = async ({
   //   }
   // }
 
+  // https://github.com/GoogleChrome/chrome-launcher/blob/main/src/flags.ts
   const flags = Launcher.defaultFlags()
 
   if (enableExtensions === true) {
