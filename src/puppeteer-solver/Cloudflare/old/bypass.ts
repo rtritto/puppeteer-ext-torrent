@@ -24,16 +24,24 @@ export const checkStat = async (page: Page) => {
     })
     if (checkStat !== 0) {
       try {
+        // https://github.com/berstend/puppeteer-extra/issues/817#issuecomment-1750744446
         // await setTimeout(5000)
         await setTimeout(3000)
 
+        // Click on the blank content of the page
         await page.click('body')
         await setTimeout(500)
 
+        // Simulate pressing the Tab key several times until the focus reaches the checkbox
         await page.keyboard.press('Tab')
+        // await page.keyboard.press('Tab')
         await setTimeout(500)
 
+        // Simulates pressing the Space key to select a checkbox
         await page.keyboard.press('Space')
+
+        // Wait a while and adjust as needed
+        // await setTimeout(15000)
         // await setTimeout(10000)
 
         // let frame = page.frames()[0]
