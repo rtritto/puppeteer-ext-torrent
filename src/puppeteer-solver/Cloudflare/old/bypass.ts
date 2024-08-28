@@ -24,7 +24,7 @@ export const checkStat = async (page: Page) => {
     })
     if (checkStat !== 0) {
       try {
-        // https://github.com/berstend/puppeteer-extra/issues/817#issuecomment-1750744446
+        // https://github.com/berstend/puppeteer-extra/issues/817#issuecomment-1757744835
         // await setTimeout(5000)
         await setTimeout(3000)
 
