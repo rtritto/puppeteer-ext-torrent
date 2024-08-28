@@ -60,7 +60,9 @@ export const connect = async ({
       ...args,
       ...((headless !== false) ? [`--headless=${headless}`] : []),
       ...((proxy.host && proxy.port) ? [`--proxy-server=${proxy.host}:${proxy.port}`] : []),
-      ...(disableSandbox === true) ? ['--no-sandbox'] : []
+      ...(disableSandbox === true) ? ['--no-sandbox'] : [],
+      // '--incognito'
+      '--disable-search-engine-choice-screen'
     ],
     ...customConfig
   })
