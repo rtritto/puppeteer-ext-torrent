@@ -2349,6 +2349,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"puppeteer-ext-torrent@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "puppeteer-ext-torrent@workspace:."
+  dependencies:
+    "@types/node": "npm:^22.5.1"
+    "@yarnpkg/sdks": "npm:^3.2.0"
+    chrome-launcher: "npm:^1.1.2"
+    ghost-cursor: "npm:^1.3.0"
+    node-html-parser: "npm:^6.1.13"
+    puppeteer-core-patch: "npm:^1.0.1"
+    puppeteer-extra: "npm:^3.3.6"
+    puppeteer-extra-plugin-stealth: "npm:^2.11.2"
+    tree-kill: "npm:^1.2.2"
+    tsx: "npm:^4.19.0"
+    typescript: "npm:^5.5.4"
+    undici: "npm:^6.19.8"
+  peerDependencies:
+    xvfb: "*"
+  peerDependenciesMeta:
+    xvfb:
+      optional: true
+  languageName: unknown
+  linkType: soft
+
 "puppeteer-extra-plugin-stealth@npm:^2.11.2":
   version: 2.11.2
   resolution: "puppeteer-extra-plugin-stealth@npm:2.11.2"
@@ -3018,30 +3042,6 @@ __metadata:
   checksum: 10c0/ccd7e723e61ad5965fffbb791366db689572b80cca80e0f96aad968dfff4156cd7cd1ad18607afe1046d8241e6fb2d6c08bf7fa7bfb5eaec818735d8feac8f05
   languageName: node
   linkType: hard
-
-"yarn-berry-template@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "yarn-berry-template@workspace:."
-  dependencies:
-    "@types/node": "npm:^22.5.1"
-    "@yarnpkg/sdks": "npm:^3.2.0"
-    chrome-launcher: "npm:^1.1.2"
-    ghost-cursor: "npm:^1.3.0"
-    node-html-parser: "npm:^6.1.13"
-    puppeteer-core-patch: "npm:^1.0.1"
-    puppeteer-extra: "npm:^3.3.6"
-    puppeteer-extra-plugin-stealth: "npm:^2.11.2"
-    tree-kill: "npm:^1.2.2"
-    tsx: "npm:^4.19.0"
-    typescript: "npm:^5.5.4"
-    undici: "npm:^6.19.8"
-  peerDependencies:
-    xvfb: "*"
-  peerDependenciesMeta:
-    xvfb:
-      optional: true
-  languageName: unknown
-  linkType: soft
 
 "yauzl@npm:^2.10.0":
   version: 2.10.0
