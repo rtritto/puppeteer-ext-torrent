@@ -25,6 +25,7 @@ type Options = {
   // extensionPath?: boolean
   enableExtensions?: boolean
   enableStealth?: boolean
+  ignoreAllFlags?: boolean
   plugins?: PuppeteerExtraPlugin[]
 }
 

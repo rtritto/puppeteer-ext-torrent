@@ -21,6 +21,7 @@ export const connect = async ({
   enableExtensions = false,
   // disableXvfb = false,
   enableStealth = false,
+  ignoreAllFlags = false,
   plugins = []
 }: Options = {}) => {
   // let xvfbsession = null
@@ -50,21 +51,37 @@ export const connect = async ({
     flags.splice(indexDisableExtension, 1)
   }
 
-  // Add AutomationControlled to "disable-features" flag
-  const indexDisableFeatures = flags.findIndex((flag) => flag.startsWith('--disable-features'))
-  flags[indexDisableFeatures] = `${flags[indexDisableFeatures]},AutomationControlled`
-
-  const chrome = await launch({
-    chromeFlags: [
+  let chromeFlags
+  if (ignoreAllFlags === true) {
+    chromeFlags = [
+      ...args,
+      ...((headless !== false) ? [`--headless=${headless}`] : []),
+      ...((proxy && proxy.host && proxy.port) ? [`--proxy-server=${proxy.host}:${proxy.port}`] : [])
+    ]
+  } else {
+    // Default flags: https://github.com/GoogleChrome/chrome-launcher/blob/main/src/flags.ts
+    const flags = Launcher.defaultFlags()
+    // Add AutomationControlled to "disable-features" flag
+    const indexDisableFeatures = flags.findIndex((flag) => flag.startsWith('--disable-features'))
+    flags[indexDisableFeatures] = `${flags[indexDisableFeatures]},AutomationControlled`
+    // Remove "disable-component-update" flag
+    const indexComponentUpdateFlag = flags.findIndex((flag) => flag.startsWith('--disable-component-update'))
+    flags.splice(indexComponentUpdateFlag, 1)
+    chromeFlags = [
       ...flags,
       // Supported flags: https://github.com/GoogleChrome/chrome-launcher/blob/main/docs/chrome-flags-for-tools.md
       ...args,
       ...((headless !== false) ? [`--headless=${headless}`] : []),
       ...((proxy.host && proxy.port) ? [`--proxy-server=${proxy.host}:${proxy.port}`] : []),
       ...(!headless) ? [] : ['--no-sandbox'],
-      // '--incognito'
+      // '--incognito',
+      // '--start-maximized',
       '--disable-search-engine-choice-screen'
-    ],
+    ]
+  }
+
+  const chrome = await launch({
+    chromeFlags,
     ignoreDefaultFlags: true,
     ...customConfig
   })
