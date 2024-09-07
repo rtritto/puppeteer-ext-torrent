@@ -252,11 +252,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@puppeteer/browsers@npm:2.3.0":
-  version: 2.3.0
-  resolution: "@puppeteer/browsers@npm:2.3.0"
+"@puppeteer/browsers@npm:2.3.1":
+  version: 2.3.1
+  resolution: "@puppeteer/browsers@npm:2.3.1"
   dependencies:
-    debug: "npm:^4.3.5"
+    debug: "npm:^4.3.6"
     extract-zip: "npm:^2.0.1"
     progress: "npm:^2.0.3"
     proxy-agent: "npm:^6.4.0"
@@ -266,7 +266,7 @@ __metadata:
     yargs: "npm:^17.7.2"
   bin:
     browsers: lib/cjs/main-cli.js
-  checksum: 10c0/8665a7d5be5e1489855780b7684bf94a55647b54a8391474cbdc1defdb2e4e6642722ef1d20bfabe49d3aed3eec2c8db41d6eabc24440f4a16d071effc5a1049
+  checksum: 10c0/2dd195b35f2b30bd6f3c3eebfb2612bed333b0f1fdffd068903c26e8cb941b1bc8522a3b2dd0b8412e85ffa080f93bdd59703e380de807cdb02d88c99caab5db
   languageName: node
   linkType: hard
 
@@ -785,16 +785,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromium-bidi@npm:0.6.3":
-  version: 0.6.3
-  resolution: "chromium-bidi@npm:0.6.3"
+"chromium-bidi@npm:0.6.5":
+  version: 0.6.5
+  resolution: "chromium-bidi@npm:0.6.5"
   dependencies:
     mitt: "npm:3.0.1"
     urlpattern-polyfill: "npm:10.0.0"
     zod: "npm:3.23.8"
   peerDependencies:
     devtools-protocol: "*"
-  checksum: 10c0/226829bfc3c9de54803cfbce5cb3075f729aa2f862b22e2e91c75d35425b537f85c49d36793d69bf4778115c4bd31ab3e9eaee1cbc28a1506a6d4b1752e34b9a
+  checksum: 10c0/3486b60b786b59dd9807f88c7430a8e9e8fd09dc13a6144a061659aabf5237a88074795f40b54fb8c00f3824f9a64463c5f253a995eeaa1e1473681a21e746e0
   languageName: node
   linkType: hard
 
@@ -936,7 +936,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:4, debug@npm:^4.1.1, debug@npm:^4.3.4, debug@npm:^4.3.5, debug@npm:^4.3.6":
+"debug@npm:4, debug@npm:^4.1.1, debug@npm:^4.3.4, debug@npm:^4.3.6":
   version: 4.3.6
   resolution: "debug@npm:4.3.6"
   dependencies:
@@ -991,10 +991,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"devtools-protocol@npm:0.0.1312386":
-  version: 0.0.1312386
-  resolution: "devtools-protocol@npm:0.0.1312386"
-  checksum: 10c0/1073b2edcee76db094fdce97fe8869f3469866513e864379e04311a429b439ba51e54809fdffb09b67bf0c37b5ac5bfd2b0536ae217b7ea2cbe2e571fbed7e8e
+"devtools-protocol@npm:0.0.1330662":
+  version: 0.0.1330662
+  resolution: "devtools-protocol@npm:0.0.1330662"
+  checksum: 10c0/358b088b570aa7ad92a8d93c58075c759ff38ecc15adbb55a501d73b9119bafaa256cdd6c1a87bdd48ceaf1cd9678807222776a2870476fd53429d7e36b5206a
   languageName: node
   linkType: hard
 
@@ -2336,16 +2336,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer-core-patch@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "puppeteer-core-patch@npm:1.0.1"
+"puppeteer-core-patch@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "puppeteer-core-patch@npm:1.0.2"
   dependencies:
-    "@puppeteer/browsers": "npm:2.3.0"
-    chromium-bidi: "npm:0.6.3"
+    "@puppeteer/browsers": "npm:2.3.1"
+    chromium-bidi: "npm:0.6.5"
     debug: "npm:^4.3.6"
-    devtools-protocol: "npm:0.0.1312386"
+    devtools-protocol: "npm:0.0.1330662"
+    typed-query-selector: "npm:^2.12.0"
     ws: "npm:^8.18.0"
-  checksum: 10c0/62702badeea0b043484bcb402ce4d30d74cf184686e9fdbb8beb9ae0dbab41fe832606f553225d8d768475c547320c910d5c080dd737c636c3b60194c3a64cb7
+  checksum: 10c0/fab85d2a1cce253bce14d0bb4c2dd6f9a1ec16b28f4fb43c6d2961f59da1c11489261097414f7e4a62218a45e6a731181e1f870f9a47651e2a8d8b2323434ab1
   languageName: node
   linkType: hard
 
@@ -2358,7 +2359,7 @@ __metadata:
     chrome-launcher: "npm:^1.1.2"
     ghost-cursor: "npm:^1.3.0"
     node-html-parser: "npm:^6.1.13"
-    puppeteer-core-patch: "npm:^1.0.1"
+    puppeteer-core-patch: "npm:^1.0.2"
     puppeteer-extra: "npm:^3.3.6"
     puppeteer-extra-plugin-stealth: "npm:^2.11.2"
     tree-kill: "npm:^1.2.2"
@@ -2862,6 +2863,13 @@ __metadata:
   version: 3.14.0
   resolution: "typanion@npm:3.14.0"
   checksum: 10c0/8b03b19844e6955bfd906c31dc781bae6d7f1fb3ce4fe24b7501557013d4889ae5cefe671dafe98d87ead0adceb8afcb8bc16df7dc0bd2b7331bac96f3a7cae2
+  languageName: node
+  linkType: hard
+
+"typed-query-selector@npm:^2.12.0":
+  version: 2.12.0
+  resolution: "typed-query-selector@npm:2.12.0"
+  checksum: 10c0/069509887ecfff824a470f5f93d300cc9223cb059a36c47ac685f2812c4c9470340e07615893765e4264cef1678507532fa78f642fd52f276b589f7f5d791f79
   languageName: node
   linkType: hard
 
