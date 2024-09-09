@@ -72,7 +72,6 @@ export async function pageController({
   })
 
   const cursor = createCursor(page)
-  await cursor.moveTo({ x: getRandomInt(0, 800), y: getRandomInt(0, 600) })
   page.realCursor = cursor
   page.realClick = cursor.click
 
