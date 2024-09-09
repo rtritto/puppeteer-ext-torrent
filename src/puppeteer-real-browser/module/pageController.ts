@@ -21,12 +21,6 @@ export async function pageController({
   killProcess = false,
   chrome
 }: PageControllerOptions) {
-  if (plugins.length > 0) {
-    for (const plugin of plugins) {
-      plugin.onPageCreated(page)
-    }
-  }
-
   // let solveStatus = turnstile
 
   // page.on('close', () => {
@@ -55,6 +49,12 @@ export async function pageController({
 
   if (proxy.username && proxy.password) {
     await page.authenticate({ username: proxy.username, password: proxy.password })
+  }
+
+  if (plugins.length > 0) {
+    for (const plugin of plugins) {
+      plugin.onPageCreated(page)
+    }
   }
 
   await page.evaluateOnNewDocument(() => {
