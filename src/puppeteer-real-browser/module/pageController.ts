@@ -17,7 +17,9 @@ export async function pageController({
   // turnstile,
   // xvfbsession,
   pid,
-  plugins
+  plugins,
+  killProcess = false,
+  chrome
 }: PageControllerOptions) {
   if (plugins.length > 0) {
     for (const plugin of plugins) {
@@ -34,8 +36,11 @@ export async function pageController({
 
   browser.on('disconnected', async () => {
     // solveStatus = false
-    // if (xvfbsession) try { xvfbsession.stopSync() } catch (err) { }
-    if (pid) try { kill(pid, 'SIGKILL') } catch (err) { }
+    if (killProcess === true) {
+      // if (xvfbsession) try { xvfbsession.stopSync() } catch (err) { }
+      if (chrome) try { chrome.kill() } catch (err) { console.log(err); }
+      if (pid) try { kill(pid, 'SIGKILL') } catch (err) { }
+    }
   })
 
   // async function turnstileSolver() {

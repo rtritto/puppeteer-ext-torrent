@@ -39,4 +39,6 @@ type PageControllerOptions = {
   // }
   pid: number
   plugins: PuppeteerExtraPlugin[]
+  killProcess: boolean
+  chrome: import('chrome-launcher').LaunchedChrome
 }

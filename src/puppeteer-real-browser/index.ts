@@ -118,7 +118,7 @@ export const connect = async ({
 
   const pageControllerConfig = { browser, page, proxy, /* turnstile, xvfbsession, */ pid: chrome.pid, plugins }
 
-  page = await pageController(pageControllerConfig)
+  page = await pageController({ ...pageControllerConfig, killProcess: true, chrome })
 
   browser.on('targetcreated', async (target) => {
     if (target.type() === 'page') {
