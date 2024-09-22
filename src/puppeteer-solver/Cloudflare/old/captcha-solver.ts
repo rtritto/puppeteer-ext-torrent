@@ -1,7 +1,7 @@
 // https://github.com/zfcsoftware/puppeteer-captcha-solver/blob/main/lib/cfSolver.js
 
 import { setTimeout } from 'node:timers/promises'
-import type { Page } from 'puppeteer-core-patch'
+import type { Page } from 'rebrowser-puppeteer-core'
 
 
 const checkCaptcha = async (page: Page) => {

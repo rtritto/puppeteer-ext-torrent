@@ -5,7 +5,7 @@ type Proxy = {
   password?: string
 }
 
-type Page = import('puppeteer-core-patch').Page & {
+type Page = import('rebrowser-puppeteer-core').Page & {
   realCursor: import('ghost-cursor').GhostCursor
   realClick: import('ghost-cursor').GhostCursor['click']
 }
@@ -18,7 +18,7 @@ type Options = {
   // skipTarget?: string[]
   // fingerprint?: boolean
   turnstile?: boolean
-  connectOption?: import('puppeteer-core-patch').ConnectOptions
+  connectOption?: import('rebrowser-puppeteer-core').ConnectOptions
   disableXvfb?: boolean
   // fpconfig?: Record<string, any>
   // executablePath?: string
@@ -30,7 +30,7 @@ type Options = {
 }
 
 type PageControllerOptions = {
-  browser: import('puppeteer-core-patch').Browser
+  browser: import('rebrowser-puppeteer-core').Browser
   page: Page
   proxy: Proxy
   // turnstile: boolean

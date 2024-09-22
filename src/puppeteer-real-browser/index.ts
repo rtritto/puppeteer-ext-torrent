@@ -1,5 +1,5 @@
 import { launch, Launcher } from 'chrome-launcher'
-import _puppeteer, { type Browser } from 'puppeteer-core-patch'
+import _puppeteer, { type Browser } from 'rebrowser-puppeteer-core'
 
 import { pageController } from './module/pageController'
 

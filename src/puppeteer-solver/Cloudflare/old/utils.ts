@@ -1,5 +1,5 @@
 import { setTimeout } from 'node:timers/promises'
-import type { Page } from 'puppeteer-core-patch'
+import type { Page } from 'rebrowser-puppeteer-core'
 
 export const getFrame = async (page: Page, regex: RegExp) => {
   while (true) {

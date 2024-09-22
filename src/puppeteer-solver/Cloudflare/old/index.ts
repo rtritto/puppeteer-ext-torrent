@@ -1,4 +1,4 @@
-import type { Page } from 'puppeteer-core-patch'
+import type { Page } from 'rebrowser-puppeteer-core'
 // import pcr from 'puppeteer-captcha-solver'
 // import { setTimeout } from 'node:timers/promises'
 

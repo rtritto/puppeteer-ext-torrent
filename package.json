@@ -15,9 +15,9 @@
     "chrome-launcher": "^1.1.2",
     "ghost-cursor": "^1.3.0",
     "node-html-parser": "^6.1.13",
-    "puppeteer-core-patch": "^1.0.2",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "rebrowser-puppeteer-core": "^23.3.1",
     "tree-kill": "^1.2.2",
     "undici": "^6.19.8"
   },

@@ -1,7 +1,7 @@
 // https://github.com/zfcsoftware/youtube_lessons_resources/blob/main/puppeteer_cloudflare_bypass/index.js
 
 import { setTimeout } from 'node:timers/promises'
-import type { Page } from 'puppeteer-core-patch'
+import type { Page } from 'rebrowser-puppeteer-core'
 
 export const checkStat = async (page: Page) => {
   const st = global.setTimeout(() => {
