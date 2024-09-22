@@ -33,7 +33,7 @@ export async function pageController({
     if (killProcess === true) {
       // if (xvfbsession) try { xvfbsession.stopSync() } catch (err) { }
       if (chrome) try { chrome.kill() } catch (err) { console.log(err); }
-      if (pid) try { kill(pid, 'SIGKILL') } catch (err) { }
+      if (pid) try { kill(pid, 'SIGKILL', () => { }) } catch (err) { }
     }
   })
 
