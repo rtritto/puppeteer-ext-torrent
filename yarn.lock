@@ -2348,7 +2348,7 @@ __metadata:
     node-html-parser: "npm:^6.1.13"
     puppeteer-extra: "npm:^3.3.6"
     puppeteer-extra-plugin-stealth: "npm:^2.11.2"
-    rebrowser-puppeteer-core: "npm:^23.3.1"
+    rebrowser-puppeteer-core: "npm:^23.3.100"
     tree-kill: "npm:^1.2.2"
     tsx: "npm:^4.19.1"
     typescript: "npm:5.5.4"
@@ -2482,9 +2482,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rebrowser-puppeteer-core@npm:^23.3.1":
-  version: 23.3.1
-  resolution: "rebrowser-puppeteer-core@npm:23.3.1"
+"rebrowser-puppeteer-core@npm:^23.3.100":
+  version: 23.3.100
+  resolution: "rebrowser-puppeteer-core@npm:23.3.100"
   dependencies:
     "@puppeteer/browsers": "npm:2.4.0"
     chromium-bidi: "npm:0.6.5"
@@ -2492,7 +2492,7 @@ __metadata:
     devtools-protocol: "npm:0.0.1330662"
     typed-query-selector: "npm:^2.12.0"
     ws: "npm:^8.18.0"
-  checksum: 10c0/55c485c6947e5a74d066cd16ebbc3f004f2b855e9aff895306ee009c89d0aa14b6960dd80ed575a164b8b10e202853140347a1d06b42b9f985b9202914f3c8cc
+  checksum: 10c0/2146a72dbc3a50fe6f6b519a8770119e16522f3fa78e5c61600ef20492c65079c8fed7eca3b22a5768a1949dfb65f2b60e48fce6294acf42563dee6bca45356b
   languageName: node
   linkType: hard
 
