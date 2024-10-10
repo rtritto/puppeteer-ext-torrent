@@ -19,7 +19,7 @@
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "rebrowser-puppeteer-core": "^23.3.100",
     "tree-kill": "^1.2.2",
-    "undici": "^6.19.8"
+    "undici": "^6.20.0"
   },
   "devDependencies": {
     "@types/node": "^22.7.5",
