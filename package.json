@@ -7,9 +7,9 @@
   "type": "module",
   "packageManager": "yarn@4.5.0",
   "scripts": {
-    "start": "yarn node --import tsx/esm ./start.ts",
+    "start": "tsx ./start.ts",
     "od": "yarn outdated",
-    "test": "yarn node --test-only --import tsx/esm ./src/test.ts"
+    "test": "tsx --test-only ./src/test.ts"
   },
   "dependencies": {
     "chrome-launcher": "^1.1.2",
