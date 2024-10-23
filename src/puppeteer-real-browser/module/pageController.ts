@@ -4,12 +4,6 @@ import kill from 'tree-kill'
 
 // import { checkTurnstile } from './turnstile'
 
-const getRandomInt = (min: number, max: number) => {
-  const _min = Math.ceil(min)
-  const _max = Math.floor(max)
-  return Math.floor(Math.random() * (_max - _min + 1)) + _min
-}
-
 export async function pageController({
   browser,
   page,
@@ -32,8 +26,8 @@ export async function pageController({
     // solveStatus = false
     if (killProcess === true) {
       // if (xvfbsession) try { xvfbsession.stopSync() } catch (err) { }
-      if (chrome) try { chrome.kill() } catch (err) { console.log(err); }
-      if (pid) try { kill(pid, 'SIGKILL', () => { }) } catch (err) { }
+      if (chrome) try { chrome.kill() } catch (error) { console.log(error) }
+      if (pid) try { kill(pid, 'SIGKILL', () => { }) } catch { }
     }
   })
 

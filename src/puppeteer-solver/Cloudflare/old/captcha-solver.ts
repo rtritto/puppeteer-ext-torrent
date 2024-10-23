@@ -9,17 +9,17 @@ const checkCaptcha = async (page: Page) => {
     let global_status = false
 
     try {
-      document.querySelectorAll('iframe').forEach((el) => {
-        if (el.src.indexOf('/cdn-cgi/challenge-platform/h/b/turnstile') > -1) {
+      for (const el of document.querySelectorAll('iframe')) {
+        if (el.src.includes('/cdn-cgi/challenge-platform/h/b/turnstile')) {
           global_status = true
-          return
+          continue
         }
-      })
-      return global_status
-    } catch (err) {
-      return global_status
+      }
+    } catch {
+      // Ignore
     }
-  }).catch((_err) => {
+    return global_status
+  }).catch(() => {
     return false
   })
   return checkFC
@@ -27,7 +27,7 @@ const checkCaptcha = async (page: Page) => {
 
 const CPsolve = async (page: Page) => {
   try {
-    const frames = page.frames().filter(frame => frame.url().indexOf('/cdn-cgi/challenge-platform/h/b/turnstile') > -1)
+    const frames = page.frames().filter(frame => frame.url().includes('/cdn-cgi/challenge-platform/h/b/turnstile'))
 
     if (frames.length > 0) {
       for (const item of frames) {
@@ -37,28 +37,26 @@ const CPsolve = async (page: Page) => {
           const active_frame = item.childFrames()[0]
 
           if (active_frame) {
-            await active_frame.hover('[type="checkbox"]').catch(err => { })
-            await active_frame.click('[type="checkbox"]').catch(err => { })
+            await active_frame.hover('[type="checkbox"]').catch(() => { })
+            await active_frame.click('[type="checkbox"]').catch(() => { })
           }
 
           await setTimeout(500)
-        } catch (err) {
-          console.log(err)
+        } catch (error) {
+          console.log(error)
         }
       }
     }
-  } catch (err) { }
+  } catch {
+    // Ignore
+  }
 }
 
 const pageState = async (page: Page) => {
   try {
     const isPageClosed = () => !page || page.isClosed()
-    if (isPageClosed() === true) {
-      return false
-    } else {
-      return true
-    }
-  } catch (err) {
+    return isPageClosed() !== true
+  } catch {
     return false
   }
 }

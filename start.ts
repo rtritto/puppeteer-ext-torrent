@@ -40,7 +40,7 @@ for (let i = 0; i < len; i++) {
   if (pageNumber === 1) {
     const paginationBlock = root.querySelector('.pagination-block')
     const pageLink = paginationBlock?.querySelectorAll('a.page-link')
-    len = parseInt(pageLink?.at(-2)?.rawText as string)
+    len = Number.parseInt(pageLink?.at(-2)?.rawText as string)
   }
   console.log(`current pageNumber: ${pageNumber}/${len}`)
   //#endregion

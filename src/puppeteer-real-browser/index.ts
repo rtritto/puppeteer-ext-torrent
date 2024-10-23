@@ -55,8 +55,8 @@ export const connect = async ({
   if (ignoreAllFlags === true) {
     chromeFlags = [
       ...args,
-      ...((headless !== false) ? [`--headless=${headless}`] : []),
-      ...((proxy && proxy.host && proxy.port) ? [`--proxy-server=${proxy.host}:${proxy.port}`] : [])
+      ...headless ? [`--headless=${headless}`] : [],
+      ...(proxy && proxy.host && proxy.port) ? [`--proxy-server=${proxy.host}:${proxy.port}`] : []
     ]
   } else {
     // Default flags: https://github.com/GoogleChrome/chrome-launcher/blob/main/src/flags.ts
@@ -71,9 +71,9 @@ export const connect = async ({
       ...flags,
       // Supported flags: https://github.com/GoogleChrome/chrome-launcher/blob/main/docs/chrome-flags-for-tools.md
       ...args,
-      ...((headless !== false) ? [`--headless=${headless}`] : []),
-      ...((proxy.host && proxy.port) ? [`--proxy-server=${proxy.host}:${proxy.port}`] : []),
-      ...(!headless) ? [] : ['--no-sandbox'],
+      ...headless ? [`--headless=${headless}`] : [],
+      ...(proxy.host && proxy.port) ? [`--proxy-server=${proxy.host}:${proxy.port}`] : [],
+      ...headless ? ['--no-sandbox'] : [],
       // '--incognito',
       // '--start-maximized',
       '--disable-search-engine-choice-screen'

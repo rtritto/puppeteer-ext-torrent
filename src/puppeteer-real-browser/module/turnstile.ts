@@ -1,6 +1,6 @@
 export const checkTurnstile = ({ page }: { page: Page }): Promise<boolean> => {
   return new Promise(async (resolve, _reject) => {
-    const waitInterval = global.setTimeout(() => {
+    const waitInterval = globalThis.setTimeout(() => {
       clearInterval(waitInterval)
       resolve(false)
     }, 5000)
@@ -12,10 +12,10 @@ export const checkTurnstile = ({ page }: { page: Page }): Promise<boolean> => {
         const coordinates = await page.evaluate(() => {
           const _coordinates = [] as { x: number, y: number, height: number }[]
 
-          document.querySelectorAll('div').forEach((item) => {
+          for (const item of document.querySelectorAll('div')) {
             try {
               const itemCoordinates = item.getBoundingClientRect()
-              const itemCss = window.getComputedStyle(item)
+              const itemCss = globalThis.getComputedStyle(item)
               if (
                 itemCss.margin == '0px'
                 && itemCss.padding == '0px'
@@ -30,11 +30,13 @@ export const checkTurnstile = ({ page }: { page: Page }): Promise<boolean> => {
                   height: item.getBoundingClientRect().height
                 })
               }
-            } catch (err) { }
-          })
+            } catch {
+              // Ignore
+            }
+          }
 
           if (coordinates.length === 0) {
-            document.querySelectorAll('div').forEach(item => {
+            for (const item of document.querySelectorAll('div')) {
               try {
                 const itemCoordinates = item.getBoundingClientRect()
                 if (itemCoordinates.width > 290 && itemCoordinates.width <= 310 && !item.querySelector('*')) {
@@ -45,8 +47,10 @@ export const checkTurnstile = ({ page }: { page: Page }): Promise<boolean> => {
                     height: item.getBoundingClientRect().height
                   })
                 }
-              } catch (err) { }
-            })
+              } catch {
+                // Ignore
+              }
+            }
           }
 
           return _coordinates
@@ -57,7 +61,9 @@ export const checkTurnstile = ({ page }: { page: Page }): Promise<boolean> => {
             const x = item.x + 30
             const y = item.y + item.height / 2
             await page.mouse.click(x, y)
-          } catch (err) { }
+          } catch {
+            // Ignore
+          }
         }
 
         return resolve(true)
@@ -70,11 +76,13 @@ export const checkTurnstile = ({ page }: { page: Page }): Promise<boolean> => {
           const x = box.x + 30
           const y = box.y + box.height / 2
           await page.mouse.click(x, y)
-        } catch (err) { }
+        } catch {
+          // Ignore
+        }
       }
       clearInterval(waitInterval)
       resolve(true)
-    } catch (err) {
+    } catch {
       clearInterval(waitInterval)
       resolve(false)
     }

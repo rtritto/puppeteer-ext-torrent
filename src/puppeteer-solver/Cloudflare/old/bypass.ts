@@ -4,7 +4,7 @@ import { setTimeout } from 'node:timers/promises'
 import type { Page } from 'rebrowser-puppeteer-core'
 
 export const checkStat = async (page: Page) => {
-  const st = global.setTimeout(() => {
+  const st = globalThis.setTimeout(() => {
     return {
       code: 1
     }
@@ -14,7 +14,7 @@ export const checkStat = async (page: Page) => {
       const htmlRaw = document.querySelector('html')
       if (htmlRaw) {
         const html = String(htmlRaw.innerHTML).toLowerCase()
-        if (html.indexOf('challenges.cloudflare.com/turnstile') > -1) {
+        if (html.includes('challenges.cloudflare.com/turnstile')) {
           return 1
         }
       } else {
@@ -50,15 +50,15 @@ export const checkStat = async (page: Page) => {
         //   await frame.hover('[type="checkbox"]').catch(err => { })
         //   await frame.click('[type="checkbox"]').catch(err => { })
         // }
-      } catch (err) {
-        // console.log('err: ', err)
+      } catch {
+        // console.log('Error:', error)
       }
     }
     clearInterval(st)
     return {
       code: checkStat
     }
-  } catch (err) {
+  } catch {
     clearInterval(st)
     return {
       code: 1
@@ -100,11 +100,11 @@ export const checkStat = async (page: Page) => {
 //           }
 //         })
 
-//       } catch (err) {
+//       } catch (error) {
 //         await browser.close()
 //         resolve({
 //           code: 501,
-//           message: err.message
+//           message: error.message
 //         })
 //       }
 
