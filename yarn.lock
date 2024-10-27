@@ -501,12 +501,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.7.9":
-  version: 22.7.9
-  resolution: "@types/node@npm:22.7.9"
+"@types/node@npm:*, @types/node@npm:^22.8.1":
+  version: 22.8.1
+  resolution: "@types/node@npm:22.8.1"
   dependencies:
-    undici-types: "npm:~6.19.2"
-  checksum: 10c0/2d1917702b9d9ede8e4d8151cd8b1af8bc147d543486474ffbe0742e38764ea73105939e6a767addf7a4c39e842e16eae762bff90617d7b7f9ee3fbbb2d23bfa
+    undici-types: "npm:~6.19.8"
+  checksum: 10c0/83550fdf72a7db5b55eceac3f4fb038844eaee20202bdd2297a8248370cfa08317bda1605b781a8043eda4f173b75e73632e652fc85509eb14dfef78fa17337f
   languageName: node
   linkType: hard
 
@@ -3314,7 +3314,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "puppeteer-ext-torrent@workspace:."
   dependencies:
-    "@types/node": "npm:^22.7.9"
+    "@types/node": "npm:^22.8.1"
     "@yarnpkg/sdks": "npm:^3.2.0"
     chrome-launcher: "npm:^1.1.2"
     eslint: "npm:^9.13.0"
@@ -3323,9 +3323,9 @@ __metadata:
     node-html-parser: "npm:^6.1.13"
     puppeteer-extra: "npm:^3.3.6"
     puppeteer-extra-plugin-stealth: "npm:^2.11.2"
-    rebrowser-puppeteer-core: "npm:^23.6.0"
+    rebrowser-puppeteer-core: "npm:^23.6.101"
     tree-kill: "npm:^1.2.2"
-    tsx: "npm:^4.19.1"
+    tsx: "npm:^4.19.2"
     typescript: "npm:^5.6.3"
     typescript-eslint: "npm:^8.11.0"
     undici: "npm:^6.20.1"
@@ -3481,9 +3481,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rebrowser-puppeteer-core@npm:^23.6.0":
-  version: 23.6.0
-  resolution: "rebrowser-puppeteer-core@npm:23.6.0"
+"rebrowser-puppeteer-core@npm:^23.6.101":
+  version: 23.6.101
+  resolution: "rebrowser-puppeteer-core@npm:23.6.101"
   dependencies:
     "@puppeteer/browsers": "npm:2.4.0"
     chromium-bidi: "npm:0.8.0"
@@ -3491,7 +3491,7 @@ __metadata:
     devtools-protocol: "npm:0.0.1354347"
     typed-query-selector: "npm:^2.12.0"
     ws: "npm:^8.18.0"
-  checksum: 10c0/e367eeeb969288c2d895555757ef3e443a9b735f1995d7b2ad0b4d0e927caf55da9c3b9e20dc272a7ad86529b8f8880e944344a027c80bb535701d907d79147f
+  checksum: 10c0/14c642cf4fb195edd78f714aa16d9af8a1a942bf1f07eddf24649c413b54cc76b7eb97d4c02fbba8c7bcc351393cf3a505dd0f709d0043c18805992aa0ef5b08
   languageName: node
   linkType: hard
 
@@ -3980,9 +3980,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^4.19.1":
-  version: 4.19.1
-  resolution: "tsx@npm:4.19.1"
+"tsx@npm:^4.19.2":
+  version: 4.19.2
+  resolution: "tsx@npm:4.19.2"
   dependencies:
     esbuild: "npm:~0.23.0"
     fsevents: "npm:~2.3.3"
@@ -3992,7 +3992,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10c0/cbea9baf57e7406fa0ecc2c03b9bb2501ee740dc28c938f949180a646a28e5d65e7cccbfba340508923bfd45e90320ef9eef7f815cae4515b6ef2ee429edc7ee
+  checksum: 10c0/63164b889b1d170403e4d8753a6755dec371f220f5ce29a8e88f1f4d6085a784a12d8dc2ee669116611f2c72757ac9beaa3eea5c452796f541bdd2dc11753721
   languageName: node
   linkType: hard
 
@@ -4084,7 +4084,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~6.19.2":
+"undici-types@npm:~6.19.8":
   version: 6.19.8
   resolution: "undici-types@npm:6.19.8"
   checksum: 10c0/078afa5990fba110f6824823ace86073b4638f1d5112ee26e790155f481f2a868cc3e0615505b6f4282bdf74a3d8caad715fd809e870c2bb0704e3ea6082f344
