@@ -75,7 +75,8 @@ export const connect = async ({
       ...headless ? ['--no-sandbox'] : [],
       // '--incognito',
       // '--start-maximized',
-      '--disable-search-engine-choice-screen'
+      '--disable-search-engine-choice-screen',
+      '--disable-dev-shm-usage'
     ]
   }
 
