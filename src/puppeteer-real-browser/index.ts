@@ -3,7 +3,6 @@ import _puppeteer, { type Browser } from 'rebrowser-puppeteer-core'
 
 import { pageController } from './module/pageController'
 
-if (!process.env.REBROWSER_PATCHES_RUNTIME_FIX_MODE) process.env.REBROWSER_PATCHES_RUNTIME_FIX_MODE = 'addBinding'
 // process.env.REBROWSER_PATCHES_DEBUG = 1
 
 /**
