@@ -38,21 +38,23 @@ for (let i = 0; i < len; i++) {
 
   //#region set len
   if (pageNumber === 1) {
-    const paginationBlock = root.querySelector('.pagination-block')
-    const pageLink = paginationBlock?.querySelectorAll('a.page-link')
-    len = Number.parseInt(pageLink?.at(-2)?.rawText as string)
+    const paginationBlock = root.querySelector('.pagination-block')!
+    const pageLink = paginationBlock.querySelectorAll('a.page-link')!
+    len = Number.parseInt(pageLink.at(-2)!.rawText as string)
   }
   console.log(`current pageNumber: ${pageNumber}/${len}`)
   //#endregion
 
-  const tbody = root.querySelector('tbody')
-  const tds = tbody?.querySelectorAll('td.text-left')
-  // const hrefs = tds?.map((e) => e.querySelector('a')?.getAttribute('href'))  // get only first <a>
-  const dataIds = tds?.map((e) => e
-    .querySelector('div.btn-blocks.float-right')
-    ?.querySelector('a.dwn-btn.torrent-dwn')
-    ?.getAttribute('data-id')
-  ) as string[]
+  const tbody = root.querySelector('tbody')!
+  const tds = tbody.querySelectorAll('td.text-left')!
+  // const hrefs = tds.map((e) => e.querySelector('a')!.getAttribute('href'))  // get only first <a>
+
+  // eslint-disable-next-line unicorn/prefer-dom-node-dataset
+  const dataIds = tds.map((e) => e!
+    .querySelector('div.btn-blocks.float-right')!
+    .querySelector('a.dwn-btn.torrent-dwn')!
+    .getAttribute('data-id')!
+  )
 
   urls.push(...dataIds)
 }
