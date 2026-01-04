@@ -1,3 +1,5 @@
+// https://github.com/ZFC-Digital/puppeteer-real-browser/blob/main/lib/esm/module/turnstile.mjs
+
 export const checkTurnstile = ({ page }: { page: Page }): Promise<boolean> => {
   return new Promise(async (resolve, _reject) => {
     const waitInterval = globalThis.setTimeout(() => {

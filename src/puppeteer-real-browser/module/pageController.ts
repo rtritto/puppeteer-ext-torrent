@@ -1,3 +1,5 @@
+// https://github.com/ZFC-Digital/puppeteer-real-browser/blob/main/lib/esm/module/pageController.mjs
+
 import { createCursor } from 'ghost-cursor'
 // import { setTimeout } from 'node:timers/promises'
 import kill from 'tree-kill'
