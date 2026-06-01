@@ -21,7 +21,7 @@ test('DrissionPage Detector', async () => {
   await page.goto('https://drissionpage.pages.dev')
   await page.realClick('#detector')
   const result = await page.evaluate(() => {
-    return document.querySelector('#isBot span').textContent.includes('not')
+    return document.querySelector('#isBot span')!.textContent.includes('not')
   })
   await browser.close()
   assert.strictEqual(result, true, 'DrissionPage Detector test failed!')
@@ -32,7 +32,7 @@ test('Brotector, a webdriver detector', async () => {
   await page.goto('https://ttlns.github.io/brotector')
   await setTimeout(3000)
   const result = await page.evaluate(() => {
-    return document.querySelector('#table-keys').getAttribute('bgcolor')
+    return document.querySelector('#table-keys')!.getAttribute('bgcolor')
   })
   await browser.close()
   assert.strictEqual(result === 'darkgreen', true, 'Brotector, a webdriver detector test failed!')
@@ -62,7 +62,7 @@ test('Cloudflare Turnstile', async () => {
   while (!token && (Date.now() - startDate) < 30000) {
     token = await page.evaluate(() => {
       try {
-        const item = document.querySelector('[name="cf - turnstile - response"]').value
+        const item = document.querySelector('[name="cf - turnstile - response"]')!.value
         return item && item.length > 20 ? item : null
       } catch (e) {
         return null
@@ -80,7 +80,7 @@ test('Fingerprint JS Bot Detector', async () => {
   await page.goto('https://fingerprint.com/products/bot-detection')
   await setTimeout(5000)
   const detect = await page.evaluate(() => {
-    return document.querySelector('.HeroSection-module--botSubTitle--2711e').textContent.includes('not')
+    return document.querySelector('.HeroSection-module--botSubTitle--2711e')!.textContent.includes('not')
   })
   await browser.close()
   assert.strictEqual(detect, true, 'Fingerprint JS Bot Detector test failed!')
@@ -102,7 +102,7 @@ test('Recaptcha V3 Score (hard)', async () => {
   await page.realClick('button')
   await setTimeout(5000)
   const score = await page.evaluate(() => {
-    return document.querySelector('big').textContent.replace(/[^\d.]/g, '')
+    return document.querySelector('big')!.textContent.replace(/[^\d.]/g, '')
   })
   await browser.close()
   // if (Number(score) >= 0.7) console.log('Recaptcha V3 Score: ' + score)
