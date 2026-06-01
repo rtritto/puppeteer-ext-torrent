@@ -29,7 +29,7 @@ test('DrissionPage Detector', async () => {
 
 test('Brotector, a webdriver detector', async () => {
   const { page, browser } = await connect(realBrowserOption)
-  await page.goto('https://kaliiiiiiiiii.github.io/brotector')
+  await page.goto('https://ttlns.github.io/brotector')
   await setTimeout(3000)
   const result = await page.evaluate(() => {
     return document.querySelector('#table-keys').getAttribute('bgcolor')
