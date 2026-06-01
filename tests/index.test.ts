@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert'
 import { setTimeout } from 'node:timers/promises'
 
-import { connect } from '../src/puppeteer-real-browser/index'
+import { connect } from '../src/puppeteer-real-browser/index.ts'
 
 const realBrowserOption = {
   args: ['--start-maximized'],

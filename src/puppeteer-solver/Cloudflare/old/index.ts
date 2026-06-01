@@ -2,7 +2,7 @@ import type { Page } from 'rebrowser-puppeteer-core'
 // import pcr from 'puppeteer-captcha-solver'
 // import { setTimeout } from 'node:timers/promises'
 
-import { checkStat } from './bypass'
+import { checkStat } from './bypass.ts'
 // import { getFrame } from './utils'
 // import cfSolver from './captcha-solver'
 

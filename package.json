@@ -5,12 +5,12 @@
   "types": "./src/index.d.ts",
   "license": "MIT",
   "type": "module",
-  "packageManager": "yarn@4.12.0",
+  "packageManager": "yarn@4.15.0",
   "scripts": {
-    "start": "tsx ./start.ts",
+    "start": "node ./start.ts",
     "lint": "eslint src/**/*.ts ./*.ts",
     "od": "yarn outdated",
-    "test": "tsx --test-only ./tests/index.test.ts"
+    "test": "node --test ./tests/index.test.ts"
   },
   "dependencies": {
     "chrome-launcher": "^1.2.1",
@@ -27,7 +27,6 @@
     "@yarnpkg/sdks": "^3.2.3",
     "eslint": "^9.39.2",
     "eslint-plugin-unicorn": "^62.0.0",
-    "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.53.1"
   },

@@ -1,6 +1,6 @@
 import { setTimeout } from 'node:timers/promises'
 
-import { checkTurnstile } from '../../puppeteer-real-browser/module/turnstile'
+import { checkTurnstile } from '../../puppeteer-real-browser/module/turnstile.ts'
 
 const turnstileSolver = async (page: Page) => {
   console.debug('Try to resolve Cloudflare...')

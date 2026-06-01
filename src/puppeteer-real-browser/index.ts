@@ -1,7 +1,7 @@
 import { launch, Launcher } from 'chrome-launcher'
 import _puppeteer, { type Browser } from 'rebrowser-puppeteer-core'
 
-import { pageController } from './module/pageController'
+import { pageController } from './module/pageController.ts'
 
 // process.env.REBROWSER_PATCHES_DEBUG = 1
 

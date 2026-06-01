@@ -2,8 +2,8 @@ import { parse } from 'node-html-parser'
 import { request } from 'undici'
 import { setTimeout } from 'node:timers/promises'
 
-import { connect } from './src/puppeteer-real-browser/index'
-import { turnstileSolver } from './src/puppeteer-solver/index'
+import { connect } from './src/puppeteer-real-browser/index.ts'
+import { turnstileSolver } from './src/puppeteer-solver/index.ts'
 // import { downloadExtensions, extractZipExtensions } from '@/puppeteerUtils/extensions.ts'
 
 const getUrlExt = (filter: string, page: number) => `https://ext.to/search/${filter}/${page}/?order=age&sort=desc`
